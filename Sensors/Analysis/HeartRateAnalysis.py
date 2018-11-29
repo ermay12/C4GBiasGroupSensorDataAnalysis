@@ -15,6 +15,7 @@ class StimuliData:
         self.name = imageName
         self.ecgData = []
         self.heartRates = []
+        self.heartRateTimes = []
         self.avgHeartRate = 0.0
         self.stdDevHeartRate = 0.0
         self.minHeartRate = 0.0
@@ -38,6 +39,20 @@ class ParticipantData:
         self.heartRates = []
         self.avgGSR = 0.0
         self.stdDevGSR = 0.0
+
+### Jade fix this please! make it more robust so that it works for everyone###
+def computeBPMs(currentStimuliData):
+    bpmTimes = []
+    bpms = []
+    lastPulseTime = -1000
+    for d in currentStimuliData.ecgData:
+        if lastPulseTime < d.time - 150000:
+            if d.ecg > 600:
+                if lastPulseTime >= 0:
+                    bpmTimes.append(d.time)
+                    bpms.append(60000000 / (d.time - lastPulseTime))
+                    lastPulseTime = d.time
+    return (bpmTimes, bpms)
 
 def processRawData(dataDirectory):
     dataDirectory = join(getcwd(), dataDirectory)
@@ -68,29 +83,40 @@ def processRawData(dataDirectory):
                         startTime = int(line.split(',')[0])
                     currentStimuliData.ecgData.append(DataValue(startTime, line))
 
-        ecgs = [d.ecg for d in currentStimuliData.ecgData]
-        gcrs = [d.ecg for d in currentStimuliData.ecgData]
-        currentStimuliData.avgHeartRate = sum(ecgs) / len(ecgs)
-        currentStimuliData.stdDevHeartRate = statistics.stdev(ecgs)
-        currentStimuliData.avgGSR = sum(ecgs) / len(ecgs)
-        currentStimuliData.stdDevGSR = statistics.stdev(ecgs)
-        bpmTimes = []
-        bpms = []
-        lastPulseTime = -1000
-        for d in data:
-            if lastPulseTime < d.time - 150000:
-                if d.ecg > 600:
-                    if lastPulseTime >= 0:
-                        bpmTimes.append(d.time)
-                        bpms.append(60000000 / (d.time - lastPulseTime))
-                    lastPulseTime = d.time
+        for currentStimuliData in set(currentParticipant.positiveStimuliData) | set(currentParticipant.negativeStimuliData):
+            ecgs = [d.ecg for d in currentStimuliData.ecgData]
+            gsrs = [d.ecg for d in currentStimuliData.ecgData]
+            currentStimuliData.avgHeartRate = sum(ecgs) / len(ecgs)
+            currentStimuliData.stdDevHeartRate = statistics.stdev(ecgs)
+            currentStimuliData.avgGSR = sum(gsrs) / len(gsrs)
+            currentStimuliData.stdDevGSR = statistics.stdev(gsrs)
+            (bpmTimes, bpms) = computeBPMs(currentStimuliData)
+            currentStimuliData.heartRateTimes = bpmTimes
+            currentStimuliData.heartRates = bpms
+            ###Jade fill in the rest of the currentStimuli's data here###
+            ###Disregard the normalized regressions for now
 
-        times = [d.time for d in data]
-        ecgs = [d.ecg for d in data]
+            ###-------------------------------------------------------###
+            currentParticipant.heartRates.append(currentStimuliData.heartRates)
+
+    ### Jade find the participant's average heart rate here and then compute the ###
+    ### normalized linear regressions for each stimuli                           ###
+
+    ###--------------------------------------------------------------------------###
+    return participantsData
 
 
-processRawData('data')
+participantsData = processRawData('data')
 
+### Jade graph everything here ###
+
+
+###----------------------------###
+
+
+
+
+#below this is dead code.  please disregard
 '''
 file = open('calibrationDataEric1.txt', 'r')
 allData = {}
