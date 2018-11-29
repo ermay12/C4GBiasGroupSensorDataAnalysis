@@ -1,0 +1,306 @@
+instructions,categoryA,categoryB,leftAttribute,rightAttribute,orStimulus,trial_type,stimulusText,stimulusImage,blocks.thisRepN,blocks.thisTrialN,blocks.thisN,blocks.thisIndex,trials.thisRepN,trials.thisTrialN,trials.thisN,trials.thisIndex,requiredResponse.keys,requiredResponse.corr,requiredResponse.rt,feedbackResponse.keys,feedbackResponse.corr,feedbackResponse.rt,participant,gender,age,frameRate,expName,date,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,0,0,0,1,e,1,0.600048829641,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,0,1,1,0,i,1,0.484192981399,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,1,0,2,0,i,1,0.767492253814,e,1,0.499761185085,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,1,1,3,0,i,1,2.46547020858,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,2,0,4,1,e,1,1.26620375949,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,2,1,5,0,i,1,0.700339239629,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,3,0,6,1,e,1,0.783144605695,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,3,1,7,0,i,1,1.06630639656,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,4,0,8,1,e,1,0.833520921893,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,4,1,9,1,e,1,0.683508813236,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,5,0,10,1,e,1,0.582844279634,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,5,1,11,0,i,1,0.550941847294,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,6,0,12,0,i,1,0.449788227081,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,6,1,13,1,e,1,0.566802396759,i,1,0.401926874838,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,7,0,14,1,e,1,0.766424006477,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,7,1,15,0,i,1,0.450635239758,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,8,0,16,1,e,1,0.566720618954,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,8,1,17,1,e,1,0.433526689783,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,9,0,18,0,i,1,0.433333109468,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,9,1,19,0,i,1,0.483567203381,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,0,0,0,1,e,1,0.649831367846,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,3,text_trial_type_3,img_trial_type_3,0,1,1,1,0,1,1,0,i,1,2.28041453054,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,1,0,2,1,e,1,0.666427127479,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,3,text_trial_type_3,img_trial_type_3,0,1,1,1,1,1,3,0,i,1,0.999556345501,e,1,0.55075142745,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,3,text_trial_type_3,img_trial_type_3,0,1,1,1,2,0,4,0,i,1,0.583560921907,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,2,1,5,1,e,1,0.499692444326,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,3,text_trial_type_3,img_trial_type_3,0,1,1,1,3,0,6,0,i,1,0.732610264735,e,1,0.517181043819,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,3,1,7,1,e,1,0.850004879001,i,1,0.45069054843,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,4,0,8,1,e,1,0.532709346255,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,4,1,9,1,e,1,0.499687703574,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,5,0,10,1,e,1,0.449945066648,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,3,text_trial_type_3,img_trial_type_3,0,1,1,1,5,1,11,0,i,1,0.433381307012,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,6,0,12,1,e,1,0.516949537559,i,1,0.400172405003,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,3,text_trial_type_3,img_trial_type_3,0,1,1,1,6,1,13,0,i,1,0.483854413367,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,3,text_trial_type_3,img_trial_type_3,0,1,1,1,7,0,14,0,i,1,0.566533754682,e,1,0.516755167118,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,3,text_trial_type_3,img_trial_type_3,0,1,1,1,7,1,15,0,i,1,0.500041283958,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,3,text_trial_type_3,img_trial_type_3,0,1,1,1,8,0,16,0,i,1,0.584086354211,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,3,text_trial_type_3,img_trial_type_3,0,1,1,1,8,1,17,0,i,1,0.517456006899,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,9,0,18,1,e,1,0.533359618115,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,9,1,19,1,e,1,0.500573037265,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,4,text_trial_type_4,img_trial_type_4,0,2,2,2,0,0,0,3,e,1,0.717259345096,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,3,text_trial_type_3,img_trial_type_3,0,2,2,2,0,1,1,2,i,1,1.33241297082,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,3,text_trial_type_3,img_trial_type_3,0,2,2,2,0,2,2,2,i,1,0.683803134336,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,1,text_trial_type_1,img_trial_type_1,0,2,2,2,0,3,3,0,i,1,0.866028984106,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,1,text_trial_type_1,img_trial_type_1,0,2,2,2,1,0,4,0,i,1,0.550810291679,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,3,text_trial_type_3,img_trial_type_3,0,2,2,2,1,1,5,2,i,1,0.666454386737,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,2,text_trial_type_2,img_trial_type_2,0,2,2,2,1,2,6,1,e,1,0.433478492239,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,2,text_trial_type_2,img_trial_type_2,0,2,2,2,1,3,7,1,e,1,0.433475726808,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,4,text_trial_type_4,img_trial_type_4,0,2,2,2,2,0,8,3,e,1,0.850497916239,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,2,text_trial_type_2,img_trial_type_2,0,2,2,2,2,1,9,1,e,1,0.533204358784,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,4,text_trial_type_4,img_trial_type_4,0,2,2,2,2,2,10,3,e,1,0.434552665494,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,3,text_trial_type_3,img_trial_type_3,0,2,2,2,2,3,11,2,i,1,0.666802436273,e,1,0.367175256164,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,1,text_trial_type_1,img_trial_type_1,0,2,2,2,3,0,12,0,i,1,0.43302259082,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,1,text_trial_type_1,img_trial_type_1,0,2,2,2,3,1,13,0,i,1,0.383582571289,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,2,text_trial_type_2,img_trial_type_2,0,2,2,2,3,2,14,1,e,1,0.815909458135,i,1,0.449772424603,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,3,text_trial_type_3,img_trial_type_3,0,2,2,2,3,3,15,2,i,1,0.66664322633,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,4,text_trial_type_4,img_trial_type_4,0,2,2,2,4,0,16,3,e,1,0.533224506944,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,1,text_trial_type_1,img_trial_type_1,0,2,2,2,4,1,17,0,i,1,0.500001777778,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,4,text_trial_type_4,img_trial_type_4,0,2,2,2,4,2,18,3,e,1,0.533150630377,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"See above, the four categories you saw separately now appear together. Remember, each item belongs to only one group.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,2,text_trial_type_2,img_trial_type_2,0,2,2,2,4,3,19,1,e,1,0.566496618863,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,
+"Sort the same four categories again. Remember to go as fast as you can while making as few mistakes as possible.
+
+The green and white labels and items may help to identify the appropriate category. Use the E and I keys to categorize items into the four groups left and right, and correct errors by hitting the other key.
+
+Press E or I to continue.",Insects,Flowers,Negative,Positive,or,3,text_trial_type_3,img_trial_type_3,0,3,3,3,0,0,0,2,i,1,0.633631065139,None,0,,1,f,18,59.9854731466,IAT,2018_Nov_08_1259,

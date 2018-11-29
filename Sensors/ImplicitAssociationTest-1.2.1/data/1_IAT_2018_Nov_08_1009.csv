@@ -1,0 +1,116 @@
+instructions,categoryA,categoryB,leftAttribute,rightAttribute,orStimulus,trial_type,stimulusText,stimulusImage,blocks.thisRepN,blocks.thisTrialN,blocks.thisN,blocks.thisIndex,trials.thisRepN,trials.thisTrialN,trials.thisN,trials.thisIndex,requiredResponse.keys,requiredResponse.corr,requiredResponse.rt,feedbackResponse.keys,feedbackResponse.corr,feedbackResponse.rt,participant,gender,age,frameRate,expName,date,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,0,0,0,0,i,1,1.5488096983,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,0,1,1,0,i,1,1.01586054948,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,1,0,2,0,i,1,0.500088691391,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,1,1,3,1,e,1,0.632745336392,i,1,0.366656539918,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,2,0,4,0,i,1,0.616714910313,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,2,1,5,1,e,1,0.566463828727,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,3,0,6,0,i,1,0.549537797342,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,3,1,7,1,e,1,0.55013197042,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,4,0,8,0,i,1,1.04954115537,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,4,1,9,1,e,1,0.732579449905,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,5,0,10,1,e,1,0.46659020902,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,5,1,11,1,e,1,0.600028681481,i,1,0.566533754682,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,6,0,12,1,e,1,0.616946021517,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,6,1,13,1,e,1,0.46677272761,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,7,0,14,1,e,1,1.63247313874,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,7,1,15,0,i,1,0.94979119004,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,2,text_trial_type_2,img_trial_type_2,0,0,0,0,8,0,16,1,e,1,0.633000941423,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,8,1,17,0,i,1,0.749665876414,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,9,0,18,0,i,1,0.599816138201,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"Put your middle or index fingers on the E and I keys of your keyboard. Words representing the categories at the top will appear one-by-one in the middle of the screen. When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. If you make an error, an X will appear - fix the error by hitting the other key.
+
+This is a timed sorting task. GO AS FAST AS YOU CAN while making as few mistakes as possible. Going too slow or making too many errors will result in an uninterpretable score. This task will take about 5 minutes to complete.
+
+Press E or I to continue.",Insects,Flowers, , , ,1,text_trial_type_1,img_trial_type_1,0,0,0,0,9,1,19,0,i,1,0.416958189424,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,3,text_trial_type_3,img_trial_type_3,0,1,1,1,0,0,0,0,i,1,1.21554299873,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,0,1,1,1,e,1,0.682682738843,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,
+"See above, the categories have changed. The items for sorting have changed as well. The rules, however, are the same.
+
+When the item belongs to a category on the left, press the E key; when the item belongs to a category on the right, press the I key. Items belong to only one category. An X appears after an error - fix the error by hitting the other key. GO AS FAST AS YOU CAN.
+
+Press E or I to continue.", , ,Negative,Positive, ,4,text_trial_type_4,img_trial_type_4,0,1,1,1,1,0,2,1,e,1,0.750604938512,None,0,,1,male,21,60.0154825177,IAT,2018_Nov_08_1009,

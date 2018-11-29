@@ -1,0 +1,300 @@
+<?xml version="1.0" ?>
+<PsychoPy2experiment encoding="utf-8" version="1.90.3">
+  <Settings>
+    <Param name="Monitor" updates="None" val="testMonitor" valType="str"/>
+    <Param name="color" updates="None" val="$[-1.000,-1.000,-1.000]" valType="str"/>
+    <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
+    <Param name="Experiment info" updates="None" val="{u'gender': u'', u'age': u'', u'name': u''}" valType="code"/>
+    <Param name="JS libs" updates="None" val="packaged" valType="str"/>
+    <Param name="Units" updates="None" val="use prefs" valType="str"/>
+    <Param name="Save excel file" updates="None" val="False" valType="bool"/>
+    <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
+    <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
+    <Param name="Window size (pixels)" updates="None" val="[1920, 1080]" valType="code"/>
+    <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
+    <Param name="blendMode" updates="None" val="avg" valType="str"/>
+    <Param name="Use version" updates="None" val="" valType="str"/>
+    <Param name="HTML path" updates="None" val="html" valType="str"/>
+    <Param name="Save csv file" updates="None" val="False" valType="bool"/>
+    <Param name="OSF Project ID" updates="None" val="" valType="str"/>
+    <Param name="Save log file" updates="None" val="True" valType="bool"/>
+    <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
+    <Param name="Show mouse" updates="None" val="False" valType="bool"/>
+    <Param name="Data filename" updates="None" val="'data/%s_%s_%s' %(expInfo['name'], expName, expInfo['date'])" valType="code"/>
+    <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
+    <Param name="expName" updates="None" val="Sensor Calibration" valType="str"/>
+    <Param name="logging level" updates="None" val="warning" valType="code"/>
+    <Param name="Screen" updates="None" val="1" valType="num"/>
+  </Settings>
+  <Routines>
+    <Routine name="trial">
+      <CodeComponent name="trials_code">
+        <Param name="Begin Experiment" updates="constant" val="#declare accuracy feedback message variable&amp;#10;msg=&quot;&quot;&amp;#10;name = expInfo['name']&amp;#10;biasName = &quot;calibrationData%s.txt&quot; %name&amp;#10;biasFile = open(biasName, &quot;w&quot;)&amp;#10;#print(&quot;hello&quot;)&amp;#10;time.sleep(3)&amp;#10;" valType="extendedCode"/>
+        <Param name="name" updates="None" val="trials_code" valType="code"/>
+        <Param name="Each Frame" updates="constant" val="&amp;#10;&amp;#10;if ser.in_waiting &gt; 0:&amp;#10;    biasFile.write(ser.readline())&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="&amp;#10;#import ctypes  # An included library with Python install.   &amp;#10;#ctypes.windll.user32.MessageBoxW(0, &quot;Your text&quot;, &quot;Your title&quot;, 1)&amp;#10;&amp;#10;&amp;#10;# choose a random exemplar from the appropriate trial type list&amp;#10;if trial_type == 1:&amp;#10;    text_stimulus = text_trial_type_1_trials.pop()&amp;#10;    image_stimulus = img_trial_type_1_trials.pop()&amp;#10;elif trial_type == 2:&amp;#10;    text_stimulus = text_trial_type_2_trials.pop()&amp;#10;    image_stimulus = img_trial_type_2_trials.pop()&amp;#10;elif trial_type == 3:&amp;#10;    text_stimulus = text_trial_type_3_trials.pop()&amp;#10;    image_stimulus = img_trial_type_3_trials.pop()&amp;#10;elif trial_type == 4:&amp;#10;    text_stimulus = text_trial_type_4_trials.pop()&amp;#10;    image_stimulus = img_trial_type_4_trials.pop()&amp;#10;&amp;#10;&amp;#10;biasFile.write(image_stimulus)&amp;#10;biasFile.write(&quot;\n&quot;)&amp;#10;ser.write(&quot;f&quot;)&amp;#10;&amp;#10;# set stimulus colors based on trial type&amp;#10;if trial_type == 1 or trial_type == 2:&amp;#10;     stimulusColor = [1, 1, 1]&amp;#10;elif trial_type &gt;2:&amp;#10;     stimulusColor = [-1, 1, -1]" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="&amp;#10;ser.write(&quot;f&quot;)&amp;#10;while ser.in_waiting &gt; 0:&amp;#10;    biasFile.write(ser.readline())&amp;#10;    &amp;#10;biasFile.write(&quot;endOfImage\n&quot;)&amp;#10;" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="testNumber = testNumber + 1&amp;#10;biasFile.close()" valType="extendedCode"/>
+      </CodeComponent>
+      <ImageComponent name="stimulusImageBox">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="stimulusImageBox" valType="code"/>
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="stopVal" updates="constant" val="10" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="pos" updates="constant" val="[0, 0]" valType="code"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.3" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$image_stimulus" valType="str"/>
+        <Param name="size" updates="constant" val=".6" valType="code"/>
+      </ImageComponent>
+      <TextComponent name="stimulusTextBox">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="stimulusTextBox" valType="code"/>
+        <Param name="color" updates="set every repeat" val="$stimulusColor" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="10" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="[0, 0]" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$text_stimulus" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.3" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="instruction">
+      <CodeComponent name="block_code">
+        <Param name="Begin Experiment" updates="constant" val="# Dependencies&amp;#10;import itertools  # for flattening lists of lists into lists&amp;#10;import random&amp;#10;import math  # for math.ceil() rounding up&amp;#10;import serial&amp;#10;import time&amp;#10;&amp;#10;ser = serial.Serial(port=&quot;COM5&quot;, baudrate=19200)&amp;#10;testNumber = 0&amp;#10;&amp;#10;# Import stimuli exemplars&amp;#10;exemplars_filename = 'stimuli.xlsx'&amp;#10;exemplars = data.importConditions(exemplars_filename)# Import stimuli exemplars&amp;#10;&amp;#10;# Determine rows of examplars (i.e., max number of rows)&amp;#10;&quot;&quot;&quot;&amp;#10;This method creates a fully counterbalanced presentation of exemplars when there are 5&amp;#10;of them, but it will not present each one an equal number of times it the n diverges from 5.&amp;#10;&quot;&quot;&quot;&amp;#10;n_exemplars = len(exemplars)&amp;#10;list_multiplier = int(math.ceil(10/n_exemplars))  # math.ceil() rounds up. 10 is the derived from way block lengths are calculated. Admittedly, this comment doensn't adequately document why it's ten. Honestly, I have to work it out of my fingers every time and can't explain it.&amp;#10;&amp;#10;# Trial generation function&amp;#10;def generate_trials(trial_type_column, multiplier):&amp;#10;    &quot;&quot;&quot;Generate a shuffled list of stimuli exemplars from a column in an excel stimuli file&quot;&quot;&quot; &amp;#10;    a = dict()  # declare a dict to be populated&amp;#10;    for i in range(len(exemplars)):&amp;#10;        a[i] = [exemplars[i][trial_type_column]] * multiplier  # populate the dict from vertical reads of the conditions&amp;#10;    a = a.values()  # extract only values (and not keys) from the list of dicts&amp;#10;    a = list(itertools.chain(*a))  # flatten the list of dicts into a list&amp;#10;    random.shuffle(a)  # shuffle this list, so that it can be drawn from by the trials&amp;#10;    return a&amp;#10;&amp;#10;# declare trial rows (not sure if necessary, but can't be bothered to removed and test)&amp;#10;trial_rows = &quot;&quot;&amp;#10;&amp;#10;&amp;#10;block_order = 1&amp;#10;" valType="extendedCode"/>
+        <Param name="name" updates="None" val="block_code" valType="code"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="# set the block length and the rows to pull from based on the current block &amp;#10;# this layout follows Nosek et al. 2007, &quot;The Implicit Association Test at age 7: A methodological and conceptual review&quot;&amp;#10;if blocks.thisN == 0:&amp;#10;    trial_rows = &quot;0:2&quot; &amp;#10;    n_block_repeats = 10   #2*10 = 20 trials&amp;#10;    modified_list_multiplier = list_multiplier&amp;#10;elif blocks.thisN == 1:&amp;#10;    trial_rows = &quot;2:4&quot; &amp;#10;    n_block_repeats = 10   #2*10 = 20 trials&amp;#10;    modified_list_multiplier = list_multiplier&amp;#10;elif blocks.thisN == 2:&amp;#10;    trial_rows = &quot;0:4&quot; &amp;#10;    n_block_repeats = 5   #4*5 = 20 trials&amp;#10;    modified_list_multiplier = list_multiplier&amp;#10;elif blocks.thisN == 3:&amp;#10;    trial_rows = &quot;0:4&quot; &amp;#10;    n_block_repeats = 10   #4*10 = 40 trials&amp;#10;    modified_list_multiplier = list_multiplier&amp;#10;elif blocks.thisN == 4:&amp;#10;    trial_rows = &quot;0:2&quot; &amp;#10;    n_block_repeats = 20   #2*20 = 40 trials&amp;#10;    modified_list_multiplier = list_multiplier * 2  # because this block has a different trials:categories ratio&amp;#10;elif blocks.thisN == 5:&amp;#10;    trial_rows = &quot;0:4&quot; &amp;#10;    n_block_repeats = 5   #4*5 = 20 trials&amp;#10;    modified_list_multiplier = list_multiplier&amp;#10;elif blocks.thisN == 6:&amp;#10;    trial_rows = &quot;0:4&quot; &amp;#10;    n_block_repeats = 10   #4*10 = 40 trials&amp;#10;    modified_list_multiplier = list_multiplier&amp;#10;&amp;#10;# Generate list of stimuli for the block&amp;#10;text_trial_type_1_trials = generate_trials('text_trial_type_1_exemplars', modified_list_multiplier)  # function and variable determined at begin exp.&amp;#10;text_trial_type_2_trials = generate_trials('text_trial_type_2_exemplars', modified_list_multiplier)&amp;#10;text_trial_type_3_trials = generate_trials('text_trial_type_3_exemplars', modified_list_multiplier)&amp;#10;text_trial_type_4_trials = generate_trials('text_trial_type_4_exemplars', modified_list_multiplier)&amp;#10;img_trial_type_1_trials = generate_trials('img_trial_type_1_exemplars', modified_list_multiplier)&amp;#10;img_trial_type_2_trials = generate_trials('img_trial_type_2_exemplars', modified_list_multiplier)&amp;#10;img_trial_type_3_trials = generate_trials('img_trial_type_3_exemplars', modified_list_multiplier)&amp;#10;img_trial_type_4_trials = generate_trials('img_trial_type_4_exemplars', modified_list_multiplier)&amp;#10;&amp;#10;# set category and attribute labels based on the block order and current block&amp;#10;if block_order == 1 and blocks.thisN &lt;= 3:&amp;#10;    leftCategory = categoryA&amp;#10;    rightCategory = categoryB&amp;#10;elif block_order == 1 and blocks.thisN &gt; 3:&amp;#10;    leftCategory = categoryB&amp;#10;    rightCategory = categoryA&amp;#10;elif block_order == 2 and blocks.thisN &lt;= 3:&amp;#10;    leftCategory = categoryB&amp;#10;    rightCategory = categoryA&amp;#10;elif block_order == 2 and blocks.thisN &gt; 3:&amp;#10;    leftCategory = categoryA&amp;#10;    rightCategory = categoryB" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="ser.close()&amp;#10;" valType="extendedCode"/>
+      </CodeComponent>
+      <TextComponent name="instructionsBox">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="instructionsBox" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="[0, 0]" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$instructions" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.75" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.05" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="instructionsKey">
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="instructionsKey" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="allowedKeys" updates="constant" val="'e', 'i'" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="2.75" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+      <TextComponent name="leftCategoryLabel_2">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="leftCategoryLabel_2" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="[-.6, .85]" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$leftCategory" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.75" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+      <TextComponent name="rightCategoryLabel_2">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="rightCategoryLabel_2" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="[.6, .85]" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$rightCategory" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.75" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+      <TextComponent name="leftAttributeLabel_2">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="leftAttributeLabel_2" valType="code"/>
+        <Param name="color" updates="constant" val="$[-1, 1, -1]" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="[-.6, 0.55]" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$leftAttribute" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.75" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+      <TextComponent name="rightAttributeLabel_2">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="rightAttributeLabel_2" valType="code"/>
+        <Param name="color" updates="constant" val="$[-1, 1, -1]" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="[.6, 0.55]" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$rightAttribute" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.75" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+      <TextComponent name="orLeft_2">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="orLeft_2" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="[-.6, .7]" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$orStimulus" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.75" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+      <TextComponent name="orRight_2">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="orRight_2" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="[.6, .7]" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="text" updates="set every repeat" val="$orStimulus" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.75" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="end">
+      <TextComponent name="endBox">
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="name" updates="None" val="endBox" valType="code"/>
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="3" valType="code"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="pos" updates="constant" val="[0, 0]" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="text" updates="constant" val="End of the task" valType="str"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.75" valType="code"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+      </TextComponent>
+    </Routine>
+  </Routines>
+  <Flow>
+    <LoopInitiator loopType="TrialHandler" name="blocks">
+      <Param name="conditionsFile" updates="None" val="instructions.xlsx" valType="str"/>
+      <Param name="name" updates="None" val="blocks" valType="code"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="conditions" updates="None" val="[{u'block': 1, u'instructions': u'In this response task will you have to react to words and propositions that are presented on the screen. In the next phase words will be presented in ORANGE.\n\nIt is your job to decide as soon as possible whether the word refers to TRUE or FALSE.\n\nPress the I key if the word is synonymous with TRUE.\nPress the E key if the word is a synonym for FALSE.\n\nIf you make a mistake, hit the correct key as soon as possible.\n\nPut your two index fingers on the E and I keys. Press either one to start.'}, {u'block': 2, u'instructions': u&quot;The next phase some propositions will be presented in BLUE.\nThese propositons are always statements about SELF ESTEEM.\n\nYou must respond AS IF 'I am good and not bad'.\n\nPress the I key when the statement is TRUE according to the above rule.\nPress the E key when the statement is FALSE according to the above rule.\n\nFor example:\nWhen the proposition 'I am valuable' appears, respond with the right response (TRUE).\nWhen the proposition 'I am worthless' appears, respond with the left response (FALSE).\n\nIf you make a mistake hit the correct key as soon as possible.\n\nPut your two index fingers on the E and I keys. Press either one to start.&quot;}, {u'block': 3, u'instructions': u&quot;Very good!\n\nThe next phase some words will be presented in ORANGE and some propositions in BLUE. These propositons are always statements about SELF ESTEEM.\n\nAgain, you must respond AS IF 'I am good and not bad'.\n\nPress the I key when the statement is TRUE according to the above rule.\nPress the E key when the statement is FALSE according to the above rule.\n\nThe rule that you must respond to the orange words does not change:\n\nPress the I key if the word is synonymous with TRUE.\nPress the E key if the word is a synonym for FALSE.\n\nIf you make a mistake hit the correct key as soon as possible.\n\nPut your two index fingers on the E and I keys. Press either one to start.&quot;}, {u'block': 4, u'instructions': u&quot;IMPORANT: THE RULE FOR THE BLUE STATEMENTS HAS NOW CHANGED.\n\nYou must respond AS IF 'I am bad and not good'.\n\nPress the I key when the statement is TRUE according to the above rule.\nPress the E key when the statement is FALSE according to the above rule.\n\nFor example:\nWhen the proposition 'I am valuable' appears, respond with the left response (FALSE).\nWhen the proposition 'I am worthless' appears, respond with the right response (TRUE).\n\nIf you make a mistake, hit the correct key as soon as possible.\n\nPut your two index fingers on the E and I keys. Press either one to start.&quot;}, {u'block': 5, u'instructions': u&quot;Very good!\n\nThe next phase will again present words in ORANGE and statements in BLUE.\n\nAgain, you must respond AS IF 'I am bad and not good'.\n\nPress the I key when the statement is TRUE according to the above rule.\nPress the E key when the statement is FALSE according to the above rule.\n\nThe rule that you must respond to the orange words does not change:\nPress the I key if the word is synonymous with TRUE.\nPress the E key if the word is a synonym for FALSE.\n\nIf you make a mistake, hit the correct key as soon as possible.\n\nPut your two index fingers on the E and I keys. Press either one to start.&quot;}]" valType="str"/>
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+    </LoopInitiator>
+    <Routine name="instruction"/>
+    <LoopInitiator loopType="TrialHandler" name="trials">
+      <Param name="conditionsFile" updates="None" val="block_layout.xlsx" valType="str"/>
+      <Param name="name" updates="None" val="trials" valType="code"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+      <Param name="loopType" updates="None" val="fullRandom" valType="str"/>
+      <Param name="nReps" updates="None" val="n_block_repeats" valType="code"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="conditions" updates="None" val="[{u'stimulusText': u'text_trial_type_1', u'stimulusImage': u'img_trial_type_1', u'trialtype': 1}, {u'stimulusText': u'text_trial_type_2', u'stimulusImage': u'img_trial_type_2', u'trialtype': 2}, {u'stimulusText': u'text_trial_type_3', u'stimulusImage': u'img_trial_type_3', u'trialtype': 3}, {u'stimulusText': u'text_trial_type_4', u'stimulusImage': u'img_trial_type_4', u'trialtype': 4}]" valType="str"/>
+      <Param name="Selected rows" updates="None" val="$trial_rows" valType="str"/>
+    </LoopInitiator>
+    <Routine name="trial"/>
+    <LoopTerminator name="trials"/>
+    <LoopTerminator name="blocks"/>
+    <Routine name="end"/>
+  </Flow>
+</PsychoPy2experiment>
