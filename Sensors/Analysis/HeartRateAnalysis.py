@@ -1,7 +1,11 @@
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import statistics
+import os
 from os import listdir, getcwd
 from os.path import isfile, join
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats.stats import pearsonr
 
 # represents a single data point read from the arduino.  (time (ns), ecg (raw), gsr (raw))
 # time starts at 0 at the beginning of the image.
@@ -35,6 +39,7 @@ class StimuliData:
         # heart rate.  Must be computed after all images are analyzed
         self.normalizedHeartRateRegressionSlope = 0.0
         self.normalizedHeartRateRegressionYIntercept = 0.0
+        self.heartRateFunction = 0.0
         # avg gsr reading
         self.avgGSR = 0.0
         # std deviation of the gsr's values
@@ -44,6 +49,7 @@ class StimuliData:
         # same as the heart beat's linear regression
         self.normalizedGSRRegressionSlope = 0.0
         self.normalizedGSRRegressionYIntercept = 0.0
+
 
 # represents the data associated with each participant
 class ParticipantData:
@@ -73,10 +79,17 @@ def computeBPMs(currentStimuliData):
     bpmTimes = []
     bpms = []
     lastPulseTime = -1000
-    for d in currentStimuliData.ecgData:
+
+    for d in currentStimuliData.rawData:
         if lastPulseTime < d.time - 150000:
-            if d.ecg > 600:
+            average = (currentStimuliData.minHeartRate + currentStimuliData.maxHeartRate)/2
+            print(currentStimuliData.minHeartRate)
+            print(currentStimuliData.maxHeartRate)
+            print(average)
+            if d.ecg > average:
+                print("ok")
                 if lastPulseTime >= 0:
+                    print("Okkkkr")
                     bpmTimes.append(d.time)
                     bpms.append(60000000 / (d.time - lastPulseTime))
                     lastPulseTime = d.time
@@ -84,64 +97,115 @@ def computeBPMs(currentStimuliData):
 
 #processes all the data in the dataDirectory folder and returns a list of ParticipantData
 def processRawData(dataDirectory):
-    dataDirectory = join(getcwd(), dataDirectory)
-    filePaths = [join(dataDirectory, f) for f in listdir(dataDirectory) if isfile(join(dataDirectory, f))]
+    #dataDirectory = join(getcwd(), dataDirectory)
+    #filePaths = [join(dataDirectory, f) for f in listdir(dataDirectory) if isfile(join(dataDirectory, f))]
     participantsData = {}
-    for filePath in filePaths:
+    for fileName in os.listdir(dataDirectory):
         if('.txt' not in fileName):
             continue
-        fileName = filePath.split('\\')[len(filePath.split('\\'))-1]
+        file = open(dataDirectory + "/" + fileName, 'r')
+        fileName = fileName.split('\\')[len(fileName.split('\\'))-1]
         fileName = fileName.replace('.txt', '')
         currentParticipant = ParticipantData(fileName)
         participantsData[fileName] = currentParticipant
-        file = open(filePath, 'r')
         imageName = ''
         for line in file.readlines():
             if '.jpg' in line or '#' in line:
                 imageName = line.replace('.jpg', '').replace('#', '')
                 if('insect' in imageName):
                     currentStimuliData = StimuliData(imageName)
-                    currentParticipant.negativeStimuliData.append(currentStimuliData)
+                    currentParticipant.negativeStimuliData[imageName] = currentStimuliData
                 else:
                     currentStimuliData = StimuliData(imageName)
-                    currentParticipant.positiveStimuliData.append(currentStimuliData)
+                    currentParticipant.positiveStimuliData[imageName] = currentStimuliData
                 startTime = -1
-            else:
-                if len(line.split(',')) == 3:
-                    if (startTime == -1):
-                        startTime = int(line.split(',')[0])
-                    currentStimuliData.rawData.append(DataValue(startTime, line))
 
-        for currentStimuliData in set(currentParticipant.positiveStimuliData) | set(currentParticipant.negativeStimuliData):
-            ecgs = [d.ecg for d in currentStimuliData.ecgData]
-            gsrs = [d.ecg for d in currentStimuliData.ecgData]
+            if len(line.split(',')) == 3:
+                if (startTime == -1):
+                    startTime = int(line.split(',')[0])
+                currentStimuliData.rawData.append(DataValue(startTime, line))
+
+    #code with dic
+
+        for key in currentParticipant.positiveStimuliData.keys():
+            currentStimuliData = currentParticipant.positiveStimuliData[key]
+            currentRawData = currentStimuliData.rawData
+            ecgs = []
+            gsrs = []
+            times = []
+            for d in currentRawData:
+                ecgs.append(d.ecg)
+                gsrs.append(d.gsr)
+                times.append(d.time)
+
+            #compute ecg data
             currentStimuliData.avgHeartRate = sum(ecgs) / len(ecgs)
             currentStimuliData.stdDevHeartRate = statistics.stdev(ecgs)
-            currentStimuliData.avgGSR = sum(gsrs) / len(gsrs)
-            currentStimuliData.stdDevGSR = statistics.stdev(gsrs)
-            (bpmTimes, bpms) = computeBPMs(currentStimuliData)
+            currentStimuliData.minHeartRate = min(ecgs)
+            currentStimuliData.maxHeartRate = max(ecgs)
+
+            #(bpmTimes, bpms) = computeBPMs(currentStimuliData)
+            bpmTimes, bpms = [0, 1, 2], [300, 400, 500]
             currentStimuliData.heartRateTimes = bpmTimes
             currentStimuliData.heartRates = bpms
+
+            #compute gsr data
+            currentStimuliData.avgGSR = sum(gsrs) / len(gsrs)
+            currentStimuliData.stdDevGSR = statistics.stdev(gsrs)
+            currentStimuliData.minGSR = min(gsrs)
+            currentStimuliData.maxGSR = max(gsrs)
+
+            #compute ave heart rate data
             currentParticipant.avgHeartRates.append(currentStimuliData.avgHeartRate)
             currentParticipant.stdDevHeartRates.append(currentStimuliData.stdDevHeartRate)
             currentParticipant.gsrs.append(gsrs)
-            ###Jade fill in the rest of the currentStimuli's data here###
-            ###Disregard the normalized regressions for now
+
+
+            #compute lin reg shit
+            c = np.corrcoef(bpmTimes, bpms)[0, 1]
+            print(c)
+            heartRateRegSlope, heartRateRegIntercept = np.polyfit(bpmTimes, bpms, 1)
+            fit_fn = np.poly1d(bpmTimes, bpms)
+            plt.plot(bpmTimes, bpms, 'yo', bpmTimes, fit_fn(bpmTimes), '--k')
+            plt.show()
+
+            currentStimuliData.normalizedHeartRateRegressionSlope = heartRateRegSlope
+            currentStimuliData.normalizedHeartRateRegressionYIntercept = heartRateRegIntercept
+            currentStimuliData.heartRateFunction = fit_fn
+
+            currentParticipant.gsrs = gsrs
+            gsrRegSlope, gsrRegIntercept = np.polyfit(times, gsrs, 1)
+            currentStimuliData.normalizedGSRRegressionSlope = gsrRegSlope
+            currentStimuliData.normalizedGSRRegressionSlope = gsrRegIntercept
+
+            ###Disregard the normalized regressions for nowr
 
             ###-------------------------------------------------------###
         currentParticipant.avgHeartRate = sum(currentParticipant.avgHeartRates)/len(currentParticipant.avgHeartRates)
-        currentParticipant.stdDevHeartRate = -1#Jade figure this out.  lol i forget std deviation
+        #not sure if this is correct
+        currentParticipant.stdDevHeartRate = statistics.stdev(currentParticipant.avgHeartRates)
         currentParticipant.avgGSR = sum(currentParticipant.gsrs) / len(currentParticipant.gsrs)
         currentParticipant.stdDevGSR = statistics.stdev(currentParticipant.gsrs)
-        ### Jade  compute the normalized linear regressions for each stimuli         ###
 
-        ###--------------------------------------------------------------------------###
     return participantsData
 
 
-participantsData = processRawData('data')
+participantsData = processRawData("/Users/jadewang/Documents/CMU/Sophomore/C4G Bias/C4GBiasGroupSensorDataAnalysis/Sensors/Analysis/data")
 
 ### Jade graph everything here ###
+pKeys = participantsData.keys()
+for pKey in pKeys:
+    participant = participantsData[pKey]
+    print(pKey)
+    iKeys = participant.positiveStimuliData.keys()
+    print(iKeys)
+    for iKey in iKeys:
+        print(iKey)
+        imageData = participant.positiveStimuliData[iKey]
+        plt.plot(imageData.heartRateTimes, imageData.heartRates, 'yo',
+                 imageData.heartRateTimes * int(imageData.normalizedHeartRateRegressionSlope) + imageData.normalizedHeartRateRegressionYIntercept, '--k')
+        #plt.plot(imageData.heartRateTimes, imageData.heartRates, 'yo', imageData.heartRateFunction(imageData.heartRateTimes), '--k')
+plt.show()
 
 
 ###----------------------------###
@@ -193,3 +257,20 @@ for image in allData:
     plt.title(image)
     plt.show()
 '''
+
+#possibly dead code if we're using dic and not sets
+"""
+    for currentStimuliData in set(currentParticipant.positiveStimuliData) | set(currentParticipant.negativeStimuliData):
+        ecgs = [d.ecg for d in currentStimuliData.rawData]
+        gsrs = [d.ecg for d in currentStimuliData.rawData]
+        currentStimuliData.avgHeartRate = sum(ecgs) / len(ecgs)
+        currentStimuliData.stdDevHeartRate = statistics.stdev(ecgs)
+        currentStimuliData.avgGSR = sum(gsrs) / len(gsrs)
+        currentStimuliData.stdDevGSR = statistics.stdev(gsrs)
+        (bpmTimes, bpms) = computeBPMs(currentStimuliData)
+        currentStimuliData.heartRateTimes = bpmTimes
+        currentStimuliData.heartRates = bpms
+        currentParticipant.avgHeartRates.append(currentStimuliData.avgHeartRate)
+        currentParticipant.stdDevHeartRates.append(currentStimuliData.stdDevHeartRate)
+        currentParticipant.gsrs.append(gsrs)
+"""
