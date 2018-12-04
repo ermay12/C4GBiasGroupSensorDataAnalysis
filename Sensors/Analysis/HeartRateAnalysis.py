@@ -1,11 +1,17 @@
 #import matplotlib.pyplot as plt
 import statistics
 import os
-from os import listdir, getcwd
 from os.path import isfile, join
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats.stats import pearsonr
+from sklearn import preprocessing
+from sklearn.model_selection import train_test_split as tts
+from sklearn import svm
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import KFold
+from sklearn.model_selection import StratifiedKFold
+import array as arr
 
 # represents a single data point read from the arduino.  (time (ns), ecg (raw), gsr (raw))
 # time starts at 0 at the beginning of the image.
@@ -72,7 +78,8 @@ class ParticipantData:
 
         # all gsr reading for the participant
         self.gsrs = []
-
+        self.avgGSRs = []
+        self.stdDevGSRs = []
 
 ### Jade redo this please! make it more robust so that it works for everyone###
 def computeBPMs(currentStimuliData):
@@ -94,6 +101,75 @@ def computeBPMs(currentStimuliData):
                     bpms.append(60000000 / (d.time - lastPulseTime))
                     lastPulseTime = d.time
     return (bpmTimes, bpms)
+
+def analyzeData(participantData):
+    print("Default CV")
+
+    classify = svm.SVC(kernel="linear")
+    """
+    features = np.array([[0.0, 0.0]])
+    labels = arr.array('i', [0])
+    pKeys = participantsData.keys()
+    for pKey in pKeys:
+        participant = participantsData[pKey]
+        positive = participant.positiveStimuliData
+        negative = participant.negativeStimuliData
+        pSKeys = positive.keys()
+        nSKeys = negative.keys()
+        for pSKey in pSKeys:
+            imageData = positive[pSKey]
+            data = arr.array('d', [])
+            data.append(imageData.normalizedHeartRateRegressionSlope)
+            data.append(imageData.normalizedGSRRegressionSlope)
+            dataArray = np.array([data])
+            print(dataArray)
+            np.append(features, dataArray)
+            print(features)
+            labels.append(1)
+    """
+    #extract features and labels from data
+    features = []
+    labels = []
+    pKeys = participantsData.keys()
+    for pKey in pKeys:
+        participant = participantsData[pKey]
+        positive = participant.positiveStimuliData
+        negative = participant.negativeStimuliData
+        pSKeys = positive.keys()
+        nSKeys = negative.keys()
+        for pSKey in pSKeys:
+            imageData = positive[pSKey]
+            features.append([imageData.normalizedHeartRateRegressionSlope, imageData.normalizedGSRRegressionSlope])
+            labels.append(1)
+        for nSKey in nSKeys:
+            imageData = negative[nSKey]
+            features.append([imageData.normalizedHeartRateRegressionSlope, imageData.normalizedGSRRegressionSlope])
+            labels.append(0)
+
+    #build model
+    features = np.asarray(features)
+    #print(features)
+    labels = np.asarray(labels)
+    train_features, test_features, train_labels, test_labels = tts(features, labels, test_size=0.2)
+    classify.fit(train_features, train_labels)
+    predictions = classify.predict(test_features)
+    print("Predictions: ", predictions)
+    scores = cross_val_score(classify, features, labels, cv=8)
+    print(scores)
+    print(scores.mean(), scores.std())
+
+    print("For KFold \n")
+
+    kf = KFold(n_splits=4, shuffle=True)
+    for train, test in kf.split(features):
+        print(train, test)
+
+    print("For SKFold \n")
+
+    skf = StratifiedKFold(n_splits=8)
+    for train, test in skf.split(features, labels):
+        print(train, test)
+
 
 #processes all the data in the dataDirectory folder and returns a list of ParticipantData
 def processRawData(dataDirectory):
@@ -145,54 +221,83 @@ def processRawData(dataDirectory):
             currentStimuliData.maxHeartRate = max(ecgs)
 
             #(bpmTimes, bpms) = computeBPMs(currentStimuliData)
-            bpmTimes, bpms = [0, 1, 2], [300, 400, 500]
+            bpmTimes, bpms = [0, 1, 2, 3, 4, 5, 6, 7], [300, 400, 500, 600, 500, 300, 200, 100]
+            normalizedBpms = []
+            #maxBPM = max(bpms)
+            #minBPM = min(bpms)
+            for bpm in bpms:
+                #normalizedBpms.append((bpm - minBPM)/(maxBPM - minBPM))
+                normalizedBpms.append((bpm - currentStimuliData.avgHeartRate)/currentStimuliData.stdDevHeartRate)
+
             currentStimuliData.heartRateTimes = bpmTimes
-            currentStimuliData.heartRates = bpms
+            currentStimuliData.heartRates = normalizedBpms
 
             #compute gsr data
             currentStimuliData.avgGSR = sum(gsrs) / len(gsrs)
             currentStimuliData.stdDevGSR = statistics.stdev(gsrs)
             currentStimuliData.minGSR = min(gsrs)
             currentStimuliData.maxGSR = max(gsrs)
+            #minGSRS = min(gsrs)
+            #maxGSRS = max(gsrs)
+            normalizedGSRs = []
+            for gsr in gsrs:
+                #normalizedGSRs.append((gsr - minGSRS)/(maxGSRS - minGSRS))
+                normalizedGSRs.append((gsr - currentStimuliData.avgGSR)/currentStimuliData.stdDevGSR)
 
             #compute ave heart rate data
             currentParticipant.avgHeartRates.append(currentStimuliData.avgHeartRate)
             currentParticipant.stdDevHeartRates.append(currentStimuliData.stdDevHeartRate)
-            currentParticipant.gsrs.append(gsrs)
 
+            #compute ave gsr data
+            currentParticipant.avgGSRs.append(currentStimuliData.avgGSR)
+            currentParticipant.stdDevGSRs.append(currentParticipant.stdDevGSR)
 
-            #compute lin reg shit
-            c = np.corrcoef(bpmTimes, bpms)[0, 1]
-            print(c)
-            heartRateRegSlope, heartRateRegIntercept = np.polyfit(bpmTimes, bpms, 1)
-            fit_fn = np.poly1d(bpmTimes, bpms)
-            plt.plot(bpmTimes, bpms, 'yo', bpmTimes, fit_fn(bpmTimes), '--k')
-            plt.show()
-
+            #compute lin reg bpm
+            heartRateRegSlope, heartRateRegIntercept = np.polyfit(bpmTimes, normalizedBpms, 1)
             currentStimuliData.normalizedHeartRateRegressionSlope = heartRateRegSlope
             currentStimuliData.normalizedHeartRateRegressionYIntercept = heartRateRegIntercept
-            currentStimuliData.heartRateFunction = fit_fn
 
-            currentParticipant.gsrs = gsrs
-            gsrRegSlope, gsrRegIntercept = np.polyfit(times, gsrs, 1)
+            #graph lin reg bpm
+
+            """
+            plt.plot(np.asarray(bpmTimes), np.asarray(normalizedBpms), 'yo', np.asarray(bpmTimes),
+                     heartRateRegSlope * np.asarray(bpmTimes) + heartRateRegIntercept, '--k')
+            plt.title(fileName + ": " + imageName)
+            plt.xlabel('Time')
+            plt.ylabel('BPM')
+            plt.show()
+            """
+
+            #compute lin reg gsr
+            gsrRegSlope, gsrRegIntercept = np.polyfit(times, normalizedGSRs, 1)
             currentStimuliData.normalizedGSRRegressionSlope = gsrRegSlope
             currentStimuliData.normalizedGSRRegressionSlope = gsrRegIntercept
 
-            ###Disregard the normalized regressions for nowr
+            #graph lin reg gsr
+            """
+            plt.plot(np.asarray(times), np.asarray(normalizedGSRs), 'yo', np.asarray(times),
+                     gsrRegSlope * np.asarray(times) + gsrRegIntercept, '--k')
+            plt.title(fileName + ": " + imageName)
+            plt.xlabel('Time')
+            plt.ylabel('GSR')
+            plt.show()
+            """
 
-            ###-------------------------------------------------------###
+        #compute summary data of each participant
         currentParticipant.avgHeartRate = sum(currentParticipant.avgHeartRates)/len(currentParticipant.avgHeartRates)
-        #not sure if this is correct
         currentParticipant.stdDevHeartRate = statistics.stdev(currentParticipant.avgHeartRates)
-        currentParticipant.avgGSR = sum(currentParticipant.gsrs) / len(currentParticipant.gsrs)
-        currentParticipant.stdDevGSR = statistics.stdev(currentParticipant.gsrs)
+        currentParticipant.avgGSR = sum(currentParticipant.avgGSRs) / len(currentParticipant.avgGSRs)
+        currentParticipant.stdDevGSR = statistics.stdev(currentParticipant.avgGSRs)
 
     return participantsData
 
-
 participantsData = processRawData("/Users/jadewang/Documents/CMU/Sophomore/C4G Bias/C4GBiasGroupSensorDataAnalysis/Sensors/Analysis/data")
 
+analyzeData(participantsData)
 ### Jade graph everything here ###
+
+#probably useless for now
+"""
 pKeys = participantsData.keys()
 for pKey in pKeys:
     participant = participantsData[pKey]
@@ -202,10 +307,13 @@ for pKey in pKeys:
     for iKey in iKeys:
         print(iKey)
         imageData = participant.positiveStimuliData[iKey]
-        plt.plot(imageData.heartRateTimes, imageData.heartRates, 'yo',
-                 imageData.heartRateTimes * int(imageData.normalizedHeartRateRegressionSlope) + imageData.normalizedHeartRateRegressionYIntercept, '--k')
+        #plt.plot(imageData.heartRateTimes, imageData.heartRates, 'yo',
+        #         imageData.heartRateTimes * int(imageData.normalizedHeartRateRegressionSlope) + imageData.normalizedHeartRateRegressionYIntercept, '--k')
+
         #plt.plot(imageData.heartRateTimes, imageData.heartRates, 'yo', imageData.heartRateFunction(imageData.heartRateTimes), '--k')
-plt.show()
+#plt.show()
+
+"""
 
 
 ###----------------------------###

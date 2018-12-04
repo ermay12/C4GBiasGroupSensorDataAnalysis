@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f6a2da3-59aa-43c3-bf7a-4eb43b1a2687" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/C4GBiasGroupSensorDataAnalysis.iml" afterPath="$PROJECT_DIR$/.idea/C4GBiasGroupSensorDataAnalysis.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sensors/Analysis/.idea/workspace.xml" afterPath="$PROJECT_DIR$/Sensors/Analysis/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sensors/Analysis/HeartRateAnalysis.py" afterPath="$PROJECT_DIR$/Sensors/Analysis/HeartRateAnalysis.py" />
@@ -17,13 +15,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="learnScikit.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Desktop/HCI Research/Learn Scikit/learnScikit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="38" lean-forward="true" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="HeartRateAnalysis.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Sensors/Analysis/HeartRateAnalysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="209" column="0" lean-forward="true" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
+            <state relative-caret-position="256">
+              <caret line="160" column="25" lean-forward="true" selection-start-line="160" selection-start-column="25" selection-end-line="160" selection-end-column="25" />
               <folding>
                 <element signature="e#33#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Scikit Demo.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Desktop/HCI Research/Learn Scikit/Scikit Demo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,10 +64,16 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>ecgData</find>
-      <find>gsrs</find>
       <find>heartRateTimes</find>
       <find>heartRateFu</find>
       <find>plot</find>
+      <find>heartRates</find>
+      <find>.heartRates</find>
+      <find>gsrs</find>
+      <find>prin</find>
+      <find>maxGSR</find>
+      <find>normalizedGSR</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -56,6 +82,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$USER_HOME$/Desktop/HCI Research/Learn Scikit/Scikit Demo.py" />
         <option value="$PROJECT_DIR$/Sensors/Analysis/HeartRateAnalysis.py" />
       </list>
     </option>
@@ -67,7 +94,7 @@
     <option name="height" value="728" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Changed Files" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -104,7 +131,48 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Changed Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="C4GBiasGroupSensorDataAnalysis" type="cbb8eebc:String" user="C4GBiasGroupSensorDataAnalysis" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="C4GBiasGroupSensorDataAnalysis" type="cbb8eebc:String" user="C4GBiasGroupSensorDataAnalysis" />
+              <item name="Sensors" type="cbb8eebc:String" user="Sensors" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="C4GBiasGroupSensorDataAnalysis" type="cbb8eebc:String" user="C4GBiasGroupSensorDataAnalysis" />
+              <item name="Sensors" type="cbb8eebc:String" user="Sensors" />
+              <item name="Analysis" type="cbb8eebc:String" user="Analysis" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="C4GBiasGroupSensorDataAnalysis" type="cbb8eebc:String" user="C4GBiasGroupSensorDataAnalysis" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="C4GBiasGroupSensorDataAnalysis" type="cbb8eebc:String" user="C4GBiasGroupSensorDataAnalysis" />
+              <item name="Sensors" type="cbb8eebc:String" user="Sensors" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="C4GBiasGroupSensorDataAnalysis" type="cbb8eebc:String" user="C4GBiasGroupSensorDataAnalysis" />
+              <item name="Sensors" type="cbb8eebc:String" user="Sensors" />
+              <item name="Analysis" type="cbb8eebc:String" user="Analysis" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -141,9 +209,31 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="Scikit Demo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/HCI Research/Learn Scikit" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="C4GBiasGroupSensorDataAnalysis" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/HCI Research/Learn Scikit/Scikit Demo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.HeartRateAnalysis" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Scikit Demo" />
+    </list>
     <recent_temporary>
-      <list size="1">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Python.HeartRateAnalysis" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Scikit Demo" />
       </list>
     </recent_temporary>
   </component>
@@ -164,10 +254,10 @@
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -188,7 +278,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -208,10 +300,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Desktop/HCI Research/Learn Scikit/learnScikit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="38" lean-forward="true" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/HCI Research/Learn Scikit/Scikit Demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Sensors/Analysis/HeartRateAnalysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="209" column="0" lean-forward="true" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
+        <state relative-caret-position="256">
+          <caret line="160" column="25" lean-forward="true" selection-start-line="160" selection-start-column="25" selection-end-line="160" selection-end-column="25" />
           <folding>
             <element signature="e#33#50#0" expanded="true" />
           </folding>
