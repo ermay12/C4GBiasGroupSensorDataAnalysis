@@ -1,8 +1,11 @@
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import statistics
+import os
 from os import listdir, getcwd
 from os.path import isfile, join
-from sklearn.linear_model import LinearRegression
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats.stats import pearsonr
 
 # represents a single data point read from the arduino.  (time (ns), ecg (raw), gsr (raw))
 # time starts at 0 at the beginning of the image.
@@ -36,6 +39,7 @@ class StimuliData:
         # heart rate.  Must be computed after all images are analyzed
         self.normalizedHeartRateRegressionSlope = 0.0
         self.normalizedHeartRateRegressionYIntercept = 0.0
+        self.heartRateFunction = 0.0
         # avg gsr reading
         self.avgGSR = 0.0
         # std deviation of the gsr's values
@@ -45,6 +49,7 @@ class StimuliData:
         # same as the heart beat's linear regression
         self.normalizedGSRRegressionSlope = 0.0
         self.normalizedGSRRegressionYIntercept = 0.0
+
 
 # represents the data associated with each participant
 class ParticipantData:
@@ -74,16 +79,17 @@ def computeBPMs(currentStimuliData):
     bpmTimes = []
     bpms = []
     lastPulseTime = -1000
-    #what
-    currentRawData = currentStimuliData.rawData
-    for d in currentRawData:
-        if lastPulseTime < d.time - 150000:
-            print("im confused")
 
-    for d in currentStimuliData.ecgData:
+    for d in currentStimuliData.rawData:
         if lastPulseTime < d.time - 150000:
-            if d.ecg > 600:
+            average = (currentStimuliData.minHeartRate + currentStimuliData.maxHeartRate)/2
+            print(currentStimuliData.minHeartRate)
+            print(currentStimuliData.maxHeartRate)
+            print(average)
+            if d.ecg > average:
+                print("ok")
                 if lastPulseTime >= 0:
+                    print("Okkkkr")
                     bpmTimes.append(d.time)
                     bpms.append(60000000 / (d.time - lastPulseTime))
                     lastPulseTime = d.time
@@ -91,17 +97,17 @@ def computeBPMs(currentStimuliData):
 
 #processes all the data in the dataDirectory folder and returns a list of ParticipantData
 def processRawData(dataDirectory):
-    dataDirectory = join(getcwd(), dataDirectory)
-    filePaths = [join(dataDirectory, f) for f in listdir(dataDirectory) if isfile(join(dataDirectory, f))]
+    #dataDirectory = join(getcwd(), dataDirectory)
+    #filePaths = [join(dataDirectory, f) for f in listdir(dataDirectory) if isfile(join(dataDirectory, f))]
     participantsData = {}
-    for filePath in filePaths:
+    for fileName in os.listdir(dataDirectory):
         if('.txt' not in fileName):
             continue
-        fileName = filePath.split('\\')[len(filePath.split('\\'))-1]
+        file = open(dataDirectory + "/" + fileName, 'r')
+        fileName = fileName.split('\\')[len(fileName.split('\\'))-1]
         fileName = fileName.replace('.txt', '')
         currentParticipant = ParticipantData(fileName)
         participantsData[fileName] = currentParticipant
-        file = open(filePath, 'r')
         imageName = ''
         for line in file.readlines():
             if '.jpg' in line or '#' in line:
@@ -118,23 +124,6 @@ def processRawData(dataDirectory):
                 if (startTime == -1):
                     startTime = int(line.split(',')[0])
                 currentStimuliData.rawData.append(DataValue(startTime, line))
-
-    #possibly dead code if we're using dic and not sets
-    """
-        for currentStimuliData in set(currentParticipant.positiveStimuliData) | set(currentParticipant.negativeStimuliData):
-            ecgs = [d.ecg for d in currentStimuliData.rawData]
-            gsrs = [d.ecg for d in currentStimuliData.rawData]
-            currentStimuliData.avgHeartRate = sum(ecgs) / len(ecgs)
-            currentStimuliData.stdDevHeartRate = statistics.stdev(ecgs)
-            currentStimuliData.avgGSR = sum(gsrs) / len(gsrs)
-            currentStimuliData.stdDevGSR = statistics.stdev(gsrs)
-            (bpmTimes, bpms) = computeBPMs(currentStimuliData)
-            currentStimuliData.heartRateTimes = bpmTimes
-            currentStimuliData.heartRates = bpms
-            currentParticipant.avgHeartRates.append(currentStimuliData.avgHeartRate)
-            currentParticipant.stdDevHeartRates.append(currentStimuliData.stdDevHeartRate)
-            currentParticipant.gsrs.append(gsrs)
-    """
 
     #code with dic
 
@@ -155,7 +144,8 @@ def processRawData(dataDirectory):
             currentStimuliData.minHeartRate = min(ecgs)
             currentStimuliData.maxHeartRate = max(ecgs)
 
-            (bpmTimes, bpms) = computeBPMs(currentStimuliData)
+            #(bpmTimes, bpms) = computeBPMs(currentStimuliData)
+            bpmTimes, bpms = [0, 1, 2], [300, 400, 500]
             currentStimuliData.heartRateTimes = bpmTimes
             currentStimuliData.heartRates = bpms
 
@@ -170,16 +160,25 @@ def processRawData(dataDirectory):
             currentParticipant.stdDevHeartRates.append(currentStimuliData.stdDevHeartRate)
             currentParticipant.gsrs.append(gsrs)
 
+
             #compute lin reg shit
-            heartRateReg = LinearRegression().fit(bpms, bpmTimes)
-            currentStimuliData.normalizedHeartRateRegressionSlope = heartRateReg.coef_
-            currentStimuliData.normalizedHeartRateRegressionYIntercept = heartRateReg.intercept_
+            c = np.corrcoef(bpmTimes, bpms)[0, 1]
+            print(c)
+            heartRateRegSlope, heartRateRegIntercept = np.polyfit(bpmTimes, bpms, 1)
+            fit_fn = np.poly1d(bpmTimes, bpms)
+            plt.plot(bpmTimes, bpms, 'yo', bpmTimes, fit_fn(bpmTimes), '--k')
+            plt.show()
 
-            gsrReg = LinearRegression().fit(gsrs, times)
-            currentStimuliData.normalizedGSRRegressionSlope = gsrReg.coef_
-            currentStimuliData.normalizedGSRRegressionSlope = gsrReg.intercept_
+            currentStimuliData.normalizedHeartRateRegressionSlope = heartRateRegSlope
+            currentStimuliData.normalizedHeartRateRegressionYIntercept = heartRateRegIntercept
+            currentStimuliData.heartRateFunction = fit_fn
 
-            ###Disregard the normalized regressions for now
+            currentParticipant.gsrs = gsrs
+            gsrRegSlope, gsrRegIntercept = np.polyfit(times, gsrs, 1)
+            currentStimuliData.normalizedGSRRegressionSlope = gsrRegSlope
+            currentStimuliData.normalizedGSRRegressionSlope = gsrRegIntercept
+
+            ###Disregard the normalized regressions for nowr
 
             ###-------------------------------------------------------###
         currentParticipant.avgHeartRate = sum(currentParticipant.avgHeartRates)/len(currentParticipant.avgHeartRates)
@@ -191,11 +190,23 @@ def processRawData(dataDirectory):
     return participantsData
 
 
-participantsData = processRawData('data')
+participantsData = processRawData("/Users/jadewang/Documents/CMU/Sophomore/C4G Bias/C4GBiasGroupSensorDataAnalysis/Sensors/Analysis/data")
 
 ### Jade graph everything here ###
+pKeys = participantsData.keys()
+for pKey in pKeys:
+    participant = participantsData[pKey]
+    print(pKey)
+    iKeys = participant.positiveStimuliData.keys()
+    print(iKeys)
+    for iKey in iKeys:
+        print(iKey)
+        imageData = participant.positiveStimuliData[iKey]
+        plt.plot(imageData.heartRateTimes, imageData.heartRates, 'yo',
+                 imageData.heartRateTimes * int(imageData.normalizedHeartRateRegressionSlope) + imageData.normalizedHeartRateRegressionYIntercept, '--k')
+        #plt.plot(imageData.heartRateTimes, imageData.heartRates, 'yo', imageData.heartRateFunction(imageData.heartRateTimes), '--k')
+plt.show()
 
-#cant graph shit until figure bpm out
 
 ###----------------------------###
 
@@ -246,3 +257,20 @@ for image in allData:
     plt.title(image)
     plt.show()
 '''
+
+#possibly dead code if we're using dic and not sets
+"""
+    for currentStimuliData in set(currentParticipant.positiveStimuliData) | set(currentParticipant.negativeStimuliData):
+        ecgs = [d.ecg for d in currentStimuliData.rawData]
+        gsrs = [d.ecg for d in currentStimuliData.rawData]
+        currentStimuliData.avgHeartRate = sum(ecgs) / len(ecgs)
+        currentStimuliData.stdDevHeartRate = statistics.stdev(ecgs)
+        currentStimuliData.avgGSR = sum(gsrs) / len(gsrs)
+        currentStimuliData.stdDevGSR = statistics.stdev(gsrs)
+        (bpmTimes, bpms) = computeBPMs(currentStimuliData)
+        currentStimuliData.heartRateTimes = bpmTimes
+        currentStimuliData.heartRates = bpms
+        currentParticipant.avgHeartRates.append(currentStimuliData.avgHeartRate)
+        currentParticipant.stdDevHeartRates.append(currentStimuliData.stdDevHeartRate)
+        currentParticipant.gsrs.append(gsrs)
+"""
