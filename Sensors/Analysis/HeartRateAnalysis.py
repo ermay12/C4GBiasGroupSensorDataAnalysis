@@ -1,4 +1,4 @@
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import statistics
 import os
 from os.path import isfile, join
@@ -81,22 +81,21 @@ class ParticipantData:
         self.avgGSRs = []
         self.stdDevGSRs = []
 
-### Jade redo this please! make it more robust so that it works for everyone###
+
 def computeBPMs(currentStimuliData):
     bpmTimes = []
     bpms = []
     lastPulseTime = -1000
-
+    ecgPrev = currentStimuliData.rawData[0]
+    ecgCurr = currentStimuliData.rawData[0]
+    spikeSlope = 0
     for d in currentStimuliData.rawData:
         if lastPulseTime < d.time - 150000:
             average = (currentStimuliData.minHeartRate + currentStimuliData.maxHeartRate)/2
-            print(currentStimuliData.minHeartRate)
-            print(currentStimuliData.maxHeartRate)
-            print(average)
             if d.ecg > average:
-                print("ok")
+                #print("ok")
                 if lastPulseTime >= 0:
-                    print("Okkkkr")
+                    #print("Okkkkr")
                     bpmTimes.append(d.time)
                     bpms.append(60000000 / (d.time - lastPulseTime))
                     lastPulseTime = d.time
@@ -162,30 +161,37 @@ def analyzeData(participantData):
     train_features, test_features, train_labels, test_labels = tts(features, labels, test_size=0.2)
     classify.fit(train_features, train_labels)
     predictions = classify.predict(test_features)
+<<<<<<< HEAD
     #print(classify.coef_)
+=======
+>>>>>>> a58b8296f3d20d44c9ded412d9745de3255da036
     #print("Predictions: ", predictions)
     scores = cross_val_score(classify, features, labels, cv=8)
-    print(scores)
-    print(scores.mean(), scores.std())
+    #print(scores)
+    #print(scores.mean(), scores.std())
 
+<<<<<<< HEAD
     """
     print("For KFold \n")
+=======
+    #print("For KFold \n")
+>>>>>>> a58b8296f3d20d44c9ded412d9745de3255da036
 
     kf = KFold(n_splits=4, shuffle=True)
-    for train, test in kf.split(features):
-        print(train, test)
+    #for train, test in kf.split(features):
+        #print(train, test)
 
-    print("For SKFold \n")
+    #print("For SKFold \n")
 
     skf = StratifiedKFold(n_splits=8)
-    for train, test in skf.split(features, labels):
-        print(train, test)
+    #for train, test in skf.split(features, labels):
+        #print(train, test)
 
     """
 
 #processes all the data in the dataDirectory folder and returns a list of ParticipantData
 def processRawData(dataDirectory):
-    #dataDirectory = join(getcwd(), dataDirectory)
+    dataDirectory = join(os.getcwd(), dataDirectory)
     #filePaths = [join(dataDirectory, f) for f in listdir(dataDirectory) if isfile(join(dataDirectory, f))]
     participantsData = {}
     for fileName in os.listdir(dataDirectory):
@@ -214,9 +220,7 @@ def processRawData(dataDirectory):
                 currentStimuliData.rawData.append(DataValue(startTime, line))
 
     #code with dic
-
-        for key in currentParticipant.positiveStimuliData.keys():
-            currentStimuliData = currentParticipant.positiveStimuliData[key]
+        for currentStimuliData in set(currentParticipant.positiveStimuliData.values()) | set(currentParticipant.negativeStimuliData.values()):
             currentRawData = currentStimuliData.rawData
             ecgs = []
             gsrs = []
@@ -232,7 +236,15 @@ def processRawData(dataDirectory):
             currentStimuliData.minHeartRate = min(ecgs)
             currentStimuliData.maxHeartRate = max(ecgs)
 
-            #(bpmTimes, bpms) = computeBPMs(currentStimuliData)
+            (bpmTimes, bpms) = computeBPMs(currentStimuliData)
+            plt.figure(1)
+            plt.subplot(211)
+            plt.plot(times, ecgs)
+
+            plt.subplot(212)
+            plt.plot(bpmTimes, bpms)
+            plt.title(currentParticipant.name + " " + currentStimuliData.name)
+            plt.show()
             bpmTimes, bpms = [0, 1, 2, 3, 4, 5, 6, 7], [300, 400, 500, 600, 500, 300, 200, 100]
             normalizedBpms = []
             #maxBPM = max(bpms)
@@ -304,7 +316,7 @@ def processRawData(dataDirectory):
 
     return participantsData
 
-participantsData = processRawData("/Users/jadewang/Documents/CMU/Sophomore/C4G Bias/C4GBiasGroupSensorDataAnalysis/Sensors/Analysis/data")
+participantsData = processRawData("data")
 
 analyzeData(participantsData)
 ### Jade graph everything here ###
