@@ -85,20 +85,28 @@ class ParticipantData:
 def computeBPMs(currentStimuliData):
     bpmTimes = []
     bpms = []
-    lastPulseTime = -1000
-    ecgPrev = currentStimuliData.rawData[0]
-    ecgCurr = currentStimuliData.rawData[0]
-    spikeSlope = 0
+    lastPulseTime = -1000000
+    ecgPrev = currentStimuliData.rawData[0].ecg
+    ecgCurr = currentStimuliData.rawData[0].ecg
+    timePrev = currentStimuliData.rawData[0].time
+    timeCurr = currentStimuliData.rawData[0].time
+    spikeSlopeThreshold = 90/10000
     for d in currentStimuliData.rawData:
-        if lastPulseTime < d.time - 150000:
-            average = (currentStimuliData.minHeartRate + currentStimuliData.maxHeartRate)/2
-            if d.ecg > average:
-                #print("ok")
+        ecgCurr = d.ecg
+        timeCurr = d.time
+        if lastPulseTime < d.time - 500000:
+            if(timeCurr-timePrev == 0):
+                ecgPrev = ecgCurr
+                timePrev = timeCurr
+                continue
+            slope = (ecgCurr-ecgPrev)/(timeCurr-timePrev)
+            if slope > spikeSlopeThreshold:
                 if lastPulseTime >= 0:
-                    #print("Okkkkr")
                     bpmTimes.append(d.time)
                     bpms.append(60000000 / (d.time - lastPulseTime))
-                    lastPulseTime = d.time
+                lastPulseTime = d.time
+            ecgPrev = ecgCurr
+            timePrev = timeCurr
     return (bpmTimes, bpms)
 
 def analyzeData(participantData):
