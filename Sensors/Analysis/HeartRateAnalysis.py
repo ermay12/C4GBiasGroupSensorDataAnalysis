@@ -161,21 +161,14 @@ def analyzeData(participantData):
     train_features, test_features, train_labels, test_labels = tts(features, labels, test_size=0.2)
     classify.fit(train_features, train_labels)
     predictions = classify.predict(test_features)
-<<<<<<< HEAD
     #print(classify.coef_)
-=======
->>>>>>> a58b8296f3d20d44c9ded412d9745de3255da036
     #print("Predictions: ", predictions)
     scores = cross_val_score(classify, features, labels, cv=8)
     #print(scores)
     #print(scores.mean(), scores.std())
 
-<<<<<<< HEAD
     """
     print("For KFold \n")
-=======
-    #print("For KFold \n")
->>>>>>> a58b8296f3d20d44c9ded412d9745de3255da036
 
     kf = KFold(n_splits=4, shuffle=True)
     #for train, test in kf.split(features):

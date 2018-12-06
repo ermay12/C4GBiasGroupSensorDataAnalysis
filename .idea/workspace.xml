@@ -14,7 +14,7 @@
       <file leaf-file-name="learnScikit.py" pinned="false" current-in-tab="true">
         <entry file="file://$USER_HOME$/Desktop/HCI Research/Learn Scikit/learnScikit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="132">
               <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
@@ -116,6 +116,12 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="C4GBiasGroupSensorDataAnalysis" type="cbb8eebc:String" user="C4GBiasGroupSensorDataAnalysis" />
               <item name="Sensors" type="cbb8eebc:String" user="Sensors" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="C4GBiasGroupSensorDataAnalysis" type="cbb8eebc:String" user="C4GBiasGroupSensorDataAnalysis" />
+              <item name="Sensors" type="cbb8eebc:String" user="Sensors" />
+              <item name="Analysis" type="cbb8eebc:String" user="Analysis" />
             </path>
           </expand>
           <select />
@@ -259,8 +265,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33441034" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33441034" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2861073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -362,7 +369,7 @@
     </entry>
     <entry file="file://$USER_HOME$/Desktop/HCI Research/Learn Scikit/learnScikit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="132">
           <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
