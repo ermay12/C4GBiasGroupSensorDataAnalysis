@@ -105,7 +105,7 @@ def computeBPMs(currentStimuliData):
 def analyzeData(participantData):
     print("Default CV")
 
-    classify = svm.SVC(kernel="linear")
+    classify = svm.SVC(kernel="rbf")
     """
     features = np.array([[0.0, 0.0]])
     labels = arr.array('i', [0])
@@ -139,25 +139,36 @@ def analyzeData(participantData):
         nSKeys = negative.keys()
         for pSKey in pSKeys:
             imageData = positive[pSKey]
-            features.append([imageData.normalizedHeartRateRegressionSlope, imageData.normalizedGSRRegressionSlope])
+            features.append([imageData.normalizedHeartRateRegressionSlope, imageData.normalizedGSRRegressionSlope, 10, 10])
             labels.append(1)
         for nSKey in nSKeys:
             imageData = negative[nSKey]
-            features.append([imageData.normalizedHeartRateRegressionSlope, imageData.normalizedGSRRegressionSlope])
+            features.append([imageData.normalizedHeartRateRegressionSlope, imageData.normalizedGSRRegressionSlope, 5, 10])
             labels.append(0)
 
     #build model
+    print(len(features))
     features = np.asarray(features)
-    #print(features)
     labels = np.asarray(labels)
+    xfeatures = []
+    yfeatures = []
+    for feature in features:
+        xfeatures.append(feature[0])
+        yfeatures.append(feature[1])
+    #print(xfeatures)
+    #print(yfeatures)
+    plt.plot(xfeatures, yfeatures, "yo")
+    plt.show()
     train_features, test_features, train_labels, test_labels = tts(features, labels, test_size=0.2)
     classify.fit(train_features, train_labels)
     predictions = classify.predict(test_features)
-    print("Predictions: ", predictions)
+    #print(classify.coef_)
+    #print("Predictions: ", predictions)
     scores = cross_val_score(classify, features, labels, cv=8)
     print(scores)
     print(scores.mean(), scores.std())
 
+    """
     print("For KFold \n")
 
     kf = KFold(n_splits=4, shuffle=True)
@@ -170,6 +181,7 @@ def analyzeData(participantData):
     for train, test in skf.split(features, labels):
         print(train, test)
 
+    """
 
 #processes all the data in the dataDirectory folder and returns a list of ParticipantData
 def processRawData(dataDirectory):
@@ -266,14 +278,15 @@ def processRawData(dataDirectory):
             plt.xlabel('Time')
             plt.ylabel('BPM')
             plt.show()
-            """
 
+            """
             #compute lin reg gsr
             gsrRegSlope, gsrRegIntercept = np.polyfit(times, normalizedGSRs, 1)
             currentStimuliData.normalizedGSRRegressionSlope = gsrRegSlope
             currentStimuliData.normalizedGSRRegressionSlope = gsrRegIntercept
 
             #graph lin reg gsr
+
             """
             plt.plot(np.asarray(times), np.asarray(normalizedGSRs), 'yo', np.asarray(times),
                      gsrRegSlope * np.asarray(times) + gsrRegIntercept, '--k')
@@ -281,8 +294,8 @@ def processRawData(dataDirectory):
             plt.xlabel('Time')
             plt.ylabel('GSR')
             plt.show()
-            """
 
+            """
         #compute summary data of each participant
         currentParticipant.avgHeartRate = sum(currentParticipant.avgHeartRates)/len(currentParticipant.avgHeartRates)
         currentParticipant.stdDevHeartRate = statistics.stdev(currentParticipant.avgHeartRates)
