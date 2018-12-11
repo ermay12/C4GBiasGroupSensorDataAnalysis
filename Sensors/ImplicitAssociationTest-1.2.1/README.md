@@ -1,3 +1,6 @@
+We modified the following IAT to interface with the arduino.  The output of the sensor data is stored in .txt files in the root directory with the prefix "CalibrationData."  To run this script, an arduino must be connected to the computer and the port it is connected on must be updated in the script.
+
+
 # Open Source Implicit Association Test
 
 Written in PsychoPy, but more flexible than the version bundled with it.
