@@ -16,6 +16,7 @@ import datetime
 import threading
 import serial
 import time
+import pickle
 
 # represents a single data point read from the arduino.  (time (ns), ecg (raw), gsr (raw))
 # time starts at 0 at the beginning of the image.
@@ -114,75 +115,6 @@ def computeBPMs(currentStimuliData):
             timePrev = timeCurr
     return (bpmTimes, bpms)
 
-#build model using only data categorized as positive or negative stimuli data
-def buildModel(participantsData):
-    classify = svm.SVC(kernel="rbf")
-
-    #extract features and labels from data
-    features = []
-    labels = []
-    pKeys = participantsData.keys()
-    for pKey in pKeys:
-        participant = participantsData[pKey]
-        positive = participant.positiveStimuliData
-        negative = participant.negativeStimuliData
-        pSKeys = positive.keys()
-        nSKeys = negative.keys()
-        for pSKey in pSKeys:
-            imageData = positive[pSKey]
-            features.append([imageData.normalizedHeartRateRegressionSlope, imageData.normalizedGSRRegressionSlope,
-                            imageData.normalizedHeartRateRegressionYIntercept, imageData.normalizedGSRRegressionYIntercept])
-            labels.append(1)
-        for nSKey in nSKeys:
-            imageData = negative[nSKey]
-            features.append([imageData.normalizedHeartRateRegressionSlope, imageData.normalizedGSRRegressionSlope,
-                             imageData.normalizedHeartRateRegressionYIntercept, imageData.normalizedGSRRegressionYIntercept])
-            labels.append(0)
-
-    #build model
-    print(len(features))
-    features = np.asarray(features)
-    labels = np.asarray(labels)
-    xfeatures = []
-    yfeatures = []
-    afeatures = []
-    bfeatures = []
-    for feature in features:
-        xfeatures.append(feature[0])
-        yfeatures.append(feature[1])
-        afeatures.append(feature[2])
-        bfeatures.append(feature[3])
-    print(xfeatures)
-    print(yfeatures)
-    print(afeatures)
-    print(bfeatures)
-    plt.plot(xfeatures, yfeatures, "yo")
-    plt.show()
-    train_features, test_features, train_labels, test_labels = tts(features, labels, test_size=0.2)
-    classify.fit(train_features, train_labels)
-    predictions = classify.predict(test_features)
-    print(test_features)
-    #print(classify.coef_)
-    #print("Predictions: ", predictions)
-    scores = cross_val_score(classify, features, labels, cv=8)
-    #print(scores)
-    #print(scores.mean(), scores.std())
-    print(predictions)
-
-    """
-    print("For KFold \n")
-
-    kf = KFold(n_splits=4, shuffle=True)
-    #for train, test in kf.split(features):
-        #print(train, test)
-
-    #print("For SKFold \n")
-
-    skf = StratifiedKFold(n_splits=8)
-    #for train, test in skf.split(features, labels):
-        #print(train, test)
-
-    """
 
 def extractFeaturesLabels(participantsData):
     features = []
@@ -270,6 +202,8 @@ def parseSingleFile(fileName):
         # plot data
 
         (bpmTimes, bpms) = computeBPMs(currentStimuliData)
+
+        '''
         plt.figure(1)
         plt.subplot(211)
         plt.plot(times, ecgs)
@@ -278,6 +212,7 @@ def parseSingleFile(fileName):
         plt.plot(bpmTimes, bpms)
         plt.title(currentParticipant.name + " " + currentStimuliData.name)
         plt.show()
+        '''
 
         # ---call compute bpm function---#
         #bpmTimes, bpms = [0, 1, 2, 3, 4, 5, 6, 7], [300, 400, 500, 600, 500, 300, 200, 100]
@@ -317,28 +252,30 @@ def parseSingleFile(fileName):
         currentStimuliData.normalizedHeartRateRegressionYIntercept = heartRateRegIntercept
 
         # graph lin reg bpm
-        """
+        '''
         plt.plot(np.asarray(bpmTimes), np.asarray(normalizedBpms), 'yo', np.asarray(bpmTimes),
                  heartRateRegSlope * np.asarray(bpmTimes) + heartRateRegIntercept, '--k')
         plt.title(fileName + ": " + imageName)
         plt.xlabel('Time')
         plt.ylabel('BPM')
         plt.show()
-        """
+        '''
+
         # compute lin reg gsr for each stimuli
         gsrRegSlope, gsrRegIntercept = np.polyfit(times, normalizedGSRs, 1)
         currentStimuliData.normalizedGSRRegressionSlope = gsrRegSlope
         currentStimuliData.normalizedGSRRegressionYIntercept = gsrRegIntercept
 
         # graph lin reg gsr
-        """
+        '''
         plt.plot(np.asarray(times), np.asarray(normalizedGSRs), 'yo', np.asarray(times),
                  gsrRegSlope * np.asarray(times) + gsrRegIntercept, '--k')
         plt.title(fileName + ": " + imageName)
         plt.xlabel('Time')
         plt.ylabel('GSR')
         plt.show()
-        """
+        '''
+
     # compute summary data of each participant
     currentParticipant.avgHeartRate = sum(currentParticipant.avgHeartRates) / len(currentParticipant.avgHeartRates)
     currentParticipant.stdDevHeartRate = statistics.stdev(currentParticipant.avgHeartRates)
@@ -347,18 +284,7 @@ def parseSingleFile(fileName):
     file.close()
     return currentParticipant
 
-#processes all the data in the dataDirectory folder and returns a list of ParticipantData
-def parseData(dataDirectory):
-    dataDirectory = join(os.getcwd(), dataDirectory)
-    participantsData = {}
-    for fileName in os.listdir(dataDirectory):
-        if '.txt' not in fileName or 'participant' in fileName:
-            continue
-        currentParticipant = parseSingleFile(join('data',fileName))
-        participantsData[fileName] = currentParticipant
 
-
-    return participantsData
 
 dataFile = 0
 ser = 0
@@ -426,11 +352,9 @@ def computeBias():
     ser.close()
     participantData = parseSingleFile(dataFileName)
 
-    #build model
-    participantsData = parseData("data")
-    features, labels = extractFeaturesLabels(participantsData)
-    classify = svm.SVC(kernel="rbf")
-    classify.fit(features, labels)
+    #load model
+    with open('model.pkl', 'rb') as input:
+        classify = pickle.load(input)
 
     #Test model here
     stimuliCategories = {}
@@ -447,11 +371,6 @@ def computeBias():
     #return a map of "stimuliCategory"-> bias:boolean
 
 
-
-#participantsData = parseData("data")
-
-#buildModel(participantsData)
-
 initSensors()
 
 stimuliStart("Category 1")
@@ -467,64 +386,3 @@ categories = computeBias()
 for key in categories.keys():
     print(key, categories[key])
 
-#below this is dead code.  please disregard
-'''
-file = open('calibrationDataEric1.txt', 'r')
-allData = {}
-imageName = ''
-for line in file.readlines():
-    if '.jpg' in line:
-        imageName = line
-        allData[imageName] = []
-        startTime = -1
-    else:
-        if len(line.split(',')) == 3:
-            if(startTime ==  -1):
-                startTime = int(line.split(',')[0])
-            allData[imageName].append(DataValue(startTime, line))
-
-for image in allData:
-    data = allData[image]
-    ecgs = [d.ecg for d in data]
-    avgECG = sum(ecgs)/len(ecgs)
-    stdDevECG = statistics.stdev(ecgs)
-    bpmTimes = []
-    bpms = []
-    lastPulseTime = -1000
-    for d in data:
-        if lastPulseTime < d.time - 150000:
-            if d.ecg > 600:
-                if lastPulseTime >= 0:
-                    bpmTimes.append(d.time)
-                    bpms.append(60000000/(d.time - lastPulseTime))
-                lastPulseTime = d.time
-
-    times = [d.time for d in data]
-    ecgs = [d.ecg for d in data]
-
-    plt.figure(1)
-    plt.subplot(211)
-    plt.plot(times, ecgs)
-
-    plt.subplot(212)
-    plt.plot(bpmTimes, bpms)
-    plt.title(image)
-    plt.show()
-'''
-
-#possibly dead code if we're using dic and not sets
-"""
-    for currentStimuliData in set(currentParticipant.positiveStimuliData) | set(currentParticipant.negativeStimuliData):
-        ecgs = [d.ecg for d in currentStimuliData.rawData]
-        gsrs = [d.ecg for d in currentStimuliData.rawData]
-        currentStimuliData.avgHeartRate = sum(ecgs) / len(ecgs)
-        currentStimuliData.stdDevHeartRate = statistics.stdev(ecgs)
-        currentStimuliData.avgGSR = sum(gsrs) / len(gsrs)
-        currentStimuliData.stdDevGSR = statistics.stdev(gsrs)
-        (bpmTimes, bpms) = computeBPMs(currentStimuliData)
-        currentStimuliData.heartRateTimes = bpmTimes
-        currentStimuliData.heartRates = bpms
-        currentParticipant.avgHeartRates.append(currentStimuliData.avgHeartRate)
-        currentParticipant.stdDevHeartRates.append(currentStimuliData.stdDevHeartRate)
-        currentParticipant.gsrs.append(gsrs)
-"""
