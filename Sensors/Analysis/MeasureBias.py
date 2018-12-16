@@ -370,7 +370,8 @@ def computeBias():
     return stimuliCategories
     #return a map of "stimuliCategory"-> bias:boolean
 
-
+#Example Usage of this API
+"""
 initSensors()
 
 stimuliStart("Category 1")
@@ -385,4 +386,5 @@ categories = computeBias()
 
 for key in categories.keys():
     print(key, categories[key])
+"""
 
